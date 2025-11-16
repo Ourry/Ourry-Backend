@@ -1,6 +1,5 @@
-package com.bluewhaletech.Ourry.infrastructure.security;
+package com.bluewhaletech.Ourry.infrastructure.security.service;
 
-import lombok.Builder;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

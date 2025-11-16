@@ -1,4 +1,4 @@
-package com.bluewhaletech.Ourry.infrastructure.properties;
+package com.bluewhaletech.Ourry.infrastructure.mail;
 
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

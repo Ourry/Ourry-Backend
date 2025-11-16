@@ -1,6 +1,6 @@
 package com.bluewhaletech.Ourry.presentation.member.controller;
 
-import com.bluewhaletech.Ourry.infrastructure.jwt.JwtProvider;
+import com.bluewhaletech.Ourry.infrastructure.security.JwtProvider;
 import com.bluewhaletech.Ourry.application.member.MemberService;
 import com.bluewhaletech.Ourry.presentation.auth.dto.EmailAuthenticationDTO;
 import com.bluewhaletech.Ourry.presentation.auth.dto.JwtDTO;

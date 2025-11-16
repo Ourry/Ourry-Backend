@@ -20,7 +20,7 @@ import com.bluewhaletech.Ourry.domain.report.repository.ReportJpaRepository;
 import com.bluewhaletech.Ourry.domain.report.repository.ReportRepository;
 import com.bluewhaletech.Ourry.presentation.report.dto.ReportDTO;
 import com.bluewhaletech.Ourry.presentation.report.dto.ReportRegistrationDTO;
-import com.bluewhaletech.Ourry.infrastructure.jwt.JwtProvider;
+import com.bluewhaletech.Ourry.infrastructure.security.JwtProvider;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

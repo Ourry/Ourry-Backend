@@ -1,8 +1,9 @@
-package com.bluewhaletech.Ourry.infrastructure.jwt;
+package com.bluewhaletech.Ourry.infrastructure.security.filter;
 
 import com.bluewhaletech.Ourry.domain.auth.exception.AlreadyLoggedOutException;
 import com.bluewhaletech.Ourry.common.exception.ErrorCode;
-import com.bluewhaletech.Ourry.infrastructure.util.RedisBlackListManagement;
+import com.bluewhaletech.Ourry.infrastructure.redis.RedisBlackListManagement;
+import com.bluewhaletech.Ourry.infrastructure.security.JwtProvider;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
