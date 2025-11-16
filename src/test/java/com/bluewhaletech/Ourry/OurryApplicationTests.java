@@ -1,10 +1,13 @@
 package com.bluewhaletech.Ourry;
 
-import com.bluewhaletech.Ourry.jwt.JwtProvider;
-import com.bluewhaletech.Ourry.repository.*;
-import com.bluewhaletech.Ourry.service.MemberServiceImpl;
-import com.bluewhaletech.Ourry.util.RedisBlackListManagement;
-import com.bluewhaletech.Ourry.util.RedisEmailAuthentication;
+import com.bluewhaletech.Ourry.domain.article.repository.QuestionRepository;
+import com.bluewhaletech.Ourry.domain.member.repository.MemberRepository;
+import com.bluewhaletech.Ourry.domain.auth.repository.RedisJwtRepository;
+import com.bluewhaletech.Ourry.domain.poll.repository.*;
+import com.bluewhaletech.Ourry.infrastructure.jwt.JwtProvider;
+import com.bluewhaletech.Ourry.application.member.MemberService;
+import com.bluewhaletech.Ourry.infrastructure.util.RedisBlackListManagement;
+import com.bluewhaletech.Ourry.infrastructure.util.RedisEmailAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -18,13 +21,13 @@ class OurryApplicationTests {
 	@Autowired
 	private AuthenticationManagerBuilder authenticationManagerBuilder;
 	@Autowired
-	private MemberServiceImpl memberService;
+	private MemberService memberService;
 	@Autowired
 	private MemberRepository memberRepository;
 	@Autowired
 	private QuestionRepository questionRepository;
 	@Autowired
-	private ChoiceRepository choiceRepository;
+	private PollChoiceRepository choiceRepository;
 	@Autowired
 	private PollRepository pollRepository;
 	@Autowired

@@ -1,5 +1,9 @@
 package com.bluewhaletech.Ourry.domain;
 
+import com.bluewhaletech.Ourry.domain.article.ArticleCategory;
+import com.bluewhaletech.Ourry.domain.article.ArticleType;
+import com.bluewhaletech.Ourry.domain.report.ReportCategory;
+import com.bluewhaletech.Ourry.domain.report.ReportStatus;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 
