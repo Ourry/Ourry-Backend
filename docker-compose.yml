@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:14-alpine
+    container_name: postgres-ourry
+    environment:
+      POSTGRES_DB: ourry
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: redis-ourry
+    ports:
+      - "6379:6379"
+    restart: always
+
+volumes:
+  postgres_data:

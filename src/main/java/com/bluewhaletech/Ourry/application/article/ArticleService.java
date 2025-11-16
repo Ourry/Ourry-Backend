@@ -21,7 +21,7 @@ import com.bluewhaletech.Ourry.domain.poll.exception.PollChoiceNotFoundException
 import com.bluewhaletech.Ourry.domain.poll.exception.PollNotFoundException;
 import com.bluewhaletech.Ourry.domain.poll.exception.SolutionNotFoundException;
 import com.bluewhaletech.Ourry.domain.poll.repository.*;
-import com.bluewhaletech.Ourry.infrastructure.jwt.JwtProvider;
+import com.bluewhaletech.Ourry.infrastructure.security.JwtProvider;
 import com.bluewhaletech.Ourry.presentation.article.dto.*;
 import com.bluewhaletech.Ourry.presentation.poll.SolutionDTO;
 import jakarta.transaction.Transactional;

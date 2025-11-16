@@ -1,9 +1,10 @@
-package com.bluewhaletech.Ourry.infrastructure.config;
+package com.bluewhaletech.Ourry.infrastructure.security;
 
-import com.bluewhaletech.Ourry.infrastructure.jwt.JwtAccessDeniedHandler;
-import com.bluewhaletech.Ourry.infrastructure.jwt.JwtAuthenticationEntryPoint;
-import com.bluewhaletech.Ourry.infrastructure.jwt.JwtAuthenticationFilter;
+import com.bluewhaletech.Ourry.infrastructure.security.filter.JwtAuthenticationFilter;
+import com.bluewhaletech.Ourry.infrastructure.security.handler.JwtAccessDeniedHandler;
+import com.bluewhaletech.Ourry.infrastructure.security.handler.JwtAuthenticationEntryPoint;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
+@EnableConfigurationProperties(JwtProperties.class)
 public class SecurityConfig {
     private final JwtAccessDeniedHandler accessDeniedHandler;
     private final JwtAuthenticationFilter authenticationFilter;

@@ -1,4 +1,4 @@
-package com.bluewhaletech.Ourry.infrastructure.jwt;
+package com.bluewhaletech.Ourry.infrastructure.security.handler;
 
 import com.bluewhaletech.Ourry.common.exception.ErrorCode;
 import jakarta.servlet.http.HttpServletRequest;

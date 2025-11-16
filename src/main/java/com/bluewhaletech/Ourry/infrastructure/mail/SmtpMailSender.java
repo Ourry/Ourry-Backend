@@ -15,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 
 @Slf4j
 @Service
-public class MailService {
+public class SmtpMailSender {
     @Value("${mail.smtp.address}")
     private String address;
     @Value("${mail.smtp.personal}")
@@ -24,7 +24,7 @@ public class MailService {
     private final JavaMailSender mailSender;
 
     @Autowired
-    public MailService(JavaMailSender mailSender) {
+    public SmtpMailSender(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 

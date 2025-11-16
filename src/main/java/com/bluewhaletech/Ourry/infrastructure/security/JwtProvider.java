@@ -1,9 +1,9 @@
-package com.bluewhaletech.Ourry.infrastructure.jwt;
+package com.bluewhaletech.Ourry.infrastructure.security;
 
 import com.bluewhaletech.Ourry.presentation.auth.dto.AuthenticationDTO;
 import com.bluewhaletech.Ourry.presentation.auth.dto.JwtDTO;
 import com.bluewhaletech.Ourry.domain.auth.exception.AuthorizationNotFoundException;
-import com.bluewhaletech.Ourry.infrastructure.security.CustomUser;
+import com.bluewhaletech.Ourry.infrastructure.security.service.CustomUser;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

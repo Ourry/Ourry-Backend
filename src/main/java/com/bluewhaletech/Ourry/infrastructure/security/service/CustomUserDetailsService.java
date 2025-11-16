@@ -1,4 +1,4 @@
-package com.bluewhaletech.Ourry.infrastructure.security;
+package com.bluewhaletech.Ourry.infrastructure.security.service;
 
 import com.bluewhaletech.Ourry.domain.member.Member;
 import com.bluewhaletech.Ourry.domain.member.exception.MemberNotFoundException;

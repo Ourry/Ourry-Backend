@@ -60,11 +60,4 @@ public class ArticleController {
         articleService.addReply(accessToken, dto);
         return ResponseEntity.ok().build();
     }
-
-    @PostMapping("/article/setAlarmOnQuestion")
-    public ResponseEntity<Object> setAlarmOnQuestion(HttpServletRequest request, @RequestBody AlarmSettingDTO dto) {
-        String accessToken = request.getHeader("Authorization");
-        articleService.setAlarmOnQuestion(accessToken, dto);
-        return ResponseEntity.ok().build();
-    }
 }

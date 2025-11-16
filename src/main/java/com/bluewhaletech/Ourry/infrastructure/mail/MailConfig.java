@@ -1,4 +1,4 @@
-package com.bluewhaletech.Ourry.infrastructure.config;
+package com.bluewhaletech.Ourry.infrastructure.mail;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

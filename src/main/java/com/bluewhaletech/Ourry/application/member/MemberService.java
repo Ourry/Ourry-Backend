@@ -1,6 +1,6 @@
 package com.bluewhaletech.Ourry.application.member;
 
-import com.bluewhaletech.Ourry.infrastructure.mail.MailService;
+import com.bluewhaletech.Ourry.infrastructure.mail.SmtpMailSender;
 import com.bluewhaletech.Ourry.common.exception.ErrorCode;
 import com.bluewhaletech.Ourry.domain.auth.exception.*;
 import com.bluewhaletech.Ourry.domain.member.Member;
@@ -8,12 +8,12 @@ import com.bluewhaletech.Ourry.domain.member.MemberRole;
 import com.bluewhaletech.Ourry.domain.auth.RefreshToken;
 import com.bluewhaletech.Ourry.domain.member.exception.MemberNotFoundException;
 import com.bluewhaletech.Ourry.domain.member.exception.NicknameDuplicatedException;
-import com.bluewhaletech.Ourry.infrastructure.jwt.JwtProvider;
+import com.bluewhaletech.Ourry.infrastructure.security.JwtProvider;
 import com.bluewhaletech.Ourry.domain.member.repository.MemberJpaRepository;
 import com.bluewhaletech.Ourry.domain.member.repository.MemberRepository;
 import com.bluewhaletech.Ourry.domain.auth.repository.RedisJwtRepository;
-import com.bluewhaletech.Ourry.infrastructure.util.RedisBlackListManagement;
-import com.bluewhaletech.Ourry.infrastructure.util.RedisEmailAuthentication;
+import com.bluewhaletech.Ourry.infrastructure.redis.RedisBlackListManagement;
+import com.bluewhaletech.Ourry.infrastructure.redis.RedisEmailAuthentication;
 import com.bluewhaletech.Ourry.presentation.auth.dto.*;
 import com.bluewhaletech.Ourry.presentation.member.dto.*;
 import io.jsonwebtoken.MalformedJwtException;
@@ -36,7 +36,7 @@ import java.util.Random;
 @Service
 public class MemberService {
     private final JwtProvider tokenProvider;
-    private final MailService mailService;
+    private final SmtpMailSender mailSender;
     private final PasswordEncoder passwordEncoder;
     private final MemberRepository memberRepository;
     private final MemberJpaRepository memberJpaRepository;
@@ -46,9 +46,9 @@ public class MemberService {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     @Autowired
-    public MemberService(JwtProvider tokenProvider, MailService mailService, PasswordEncoder passwordEncoder, MemberRepository memberRepository, MemberJpaRepository memberJpaRepository, RedisJwtRepository redisJwtRepository, RedisEmailAuthentication redisEmailAuthentication, RedisBlackListManagement redisBlackListManagement, AuthenticationManagerBuilder authenticationManagerBuilder) {
+    public MemberService(JwtProvider tokenProvider, SmtpMailSender mailSender, PasswordEncoder passwordEncoder, MemberRepository memberRepository, MemberJpaRepository memberJpaRepository, RedisJwtRepository redisJwtRepository, RedisEmailAuthentication redisEmailAuthentication, RedisBlackListManagement redisBlackListManagement, AuthenticationManagerBuilder authenticationManagerBuilder) {
         this.tokenProvider = tokenProvider;
-        this.mailService = mailService;
+        this.mailSender = mailSender;
         this.passwordEncoder = passwordEncoder;
         this.memberRepository = memberRepository;
         this.memberJpaRepository = memberJpaRepository;
@@ -199,7 +199,7 @@ public class MemberService {
         text += "인증코드 : <b>"+code+"</b>";
 
         /* 입력한 이메일로 인증코드 발송 */
-        mailService.sendMail(EmailDTO.builder()
+        mailSender.sendMail(EmailDTO.builder()
                 .email(dto.getEmail())
                 .title("이메일 인증코드 발송 메일입니다.")
                 .text(text)

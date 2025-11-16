@@ -1,4 +1,4 @@
-package com.bluewhaletech.Ourry.infrastructure.jwt;
+package com.bluewhaletech.Ourry.infrastructure.security.handler;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

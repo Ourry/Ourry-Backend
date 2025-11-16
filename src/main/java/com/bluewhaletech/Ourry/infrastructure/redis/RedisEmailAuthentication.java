@@ -1,4 +1,4 @@
-package com.bluewhaletech.Ourry.infrastructure.util;
+package com.bluewhaletech.Ourry.infrastructure.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
